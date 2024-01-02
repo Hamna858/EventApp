@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, Button } from 'react-native-paper';
 
 
-export default function OrganizerVenueDetails() {
+export default function OrganizerVenueDetails({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
@@ -21,7 +21,7 @@ export default function OrganizerVenueDetails() {
                     </Card>
             </View>
             <View style={styles.btn}>
-            <TouchableOpacity style={styles.loginBtn}>
+            <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('OrganizerAllVenues')}>
                 <Text style={styles.loginText}>Back to venues</Text>
             </TouchableOpacity>
             </View>

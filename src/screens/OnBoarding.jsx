@@ -2,7 +2,6 @@ import { Text, View, ImageBackground, StyleSheet } from 'react-native';
 import React from 'react';
 import { Button } from 'react-native-paper';
 import { useFonts, Carattere_400Regular } from '@expo-google-fonts/carattere';
-import Welcome from './src/screens/Welcome';
 
 export default function OnBoarding({ navigation }) {
     let [fontsLoaded, fontError] = useFonts({
@@ -23,8 +22,8 @@ export default function OnBoarding({ navigation }) {
                 </View>
                 <View style={styles.bottom}>
                     <Button buttonColor="white" textColor="black" mode="contained" onPress={() =>
-        navigation.navigate('Welcome')
-      }>
+                        navigation.navigate('Welcome')
+                    }>
                         Get Started
                     </Button>
                 </View>

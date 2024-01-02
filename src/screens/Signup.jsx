@@ -1,7 +1,38 @@
 import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { useEffect, useState } from 'react'
+import { auth,signUps } from '../../Firebase'
 
-export default function Signup() {
+export default function Signup({ navigation }) {
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [fullName, setFullName] = useState('');
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+          if (user) {
+            navigation.replace("RegisterAs")
+          }
+        })
+    
+        return unsubscribe
+      }, [])
+
+
+    const handleSignUp = async () => {
+        try {
+          const user = await signUps(email, password);
+          // Handle successful registration, navigate or perform actions
+          console.log('New user:', user);
+        } catch (error) {
+          // Handle error in registration process
+          console.error('Error registering user:', error);
+          // Show error message or take appropriate actions
+        }
+      };
+    
+
     return (
         <View style={styles.container}>
             <Image source={require('../../assets/signup1.png')} style={styles.logo} />
@@ -31,8 +62,10 @@ export default function Signup() {
                     onChangeText={(text) => setPassword(text)}
                 />
             </View>
-            <Text style={styles.text}>Forgot password ?</Text>
-            <TouchableOpacity style={styles.loginBtn}>
+            <TouchableOpacity onPress={() => navigation.navigate('Forgotpw')}>
+                <Text style={styles.text}>Forgot password ?</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.loginBtn} onPress={handleSignUp}>
                 <Text style={styles.loginText}>Sign Up</Text>
             </TouchableOpacity>
                 <TouchableOpacity style={styles.googleButton}>

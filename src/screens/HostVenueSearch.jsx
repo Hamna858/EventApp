@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import DatePicker from 'react-native-datepicker';
 
 
-export default function HostVenueSearch() {
+export default function HostVenueSearch({navigation}) {
     const [selectedDate, setSelectedDate] = useState('');
 
     const onDateChange = date => {
@@ -65,7 +65,7 @@ export default function HostVenueSearch() {
                         onDateChange={onDateChange}
                     />
                 </View>
-                <TouchableOpacity style={styles.loginBtn}>
+                <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('SuggestedVenue')}>
                     <Text style={styles.loginText}>Find Venue</Text>
                 </TouchableOpacity>
             </View>

@@ -1,8 +1,8 @@
-import { Text, View, ImageBackground, StyleSheet } from 'react-native';
+import { Text, View, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useFonts, Carattere_400Regular } from '@expo-google-fonts/carattere';
 
-export default function Welcome({navigation, route}) {
+export default function Welcome({ navigation, route }) {
     let [fontsLoaded, fontError] = useFonts({
         Carattere_400Regular,
     });
@@ -10,6 +10,8 @@ export default function Welcome({navigation, route}) {
     if (!fontsLoaded && !fontError) {
         return null;
     }
+
+
     return (
         <ImageBackground
             source={require('../../assets/b1.jpg')}
@@ -21,10 +23,16 @@ export default function Welcome({navigation, route}) {
                         <Text style={styles.text}>Welcome</Text>
                     </View>
                 </View>
-                <View style={styles.bottom}>
+                {/* <View style={styles.bottom}>
                     <View style={styles.button}>
                         <Text style={styles.buttonText}>      Login      </Text>
                     </View>
+                </View> */}
+                <View style={styles.bottom}>
+                    <TouchableOpacity style={styles.button} onPress={() =>
+                        navigation.navigate('Login')}>
+                        <Text style={styles.buttonText}>Login</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </ImageBackground>

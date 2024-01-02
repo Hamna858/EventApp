@@ -2,7 +2,7 @@ import { Text, View, ImageBackground, StyleSheet, TouchableOpacity } from 'react
 import React from 'react';
 import { useFonts, Carattere_400Regular } from '@expo-google-fonts/carattere';
 
-export default function RegisterAs() {
+export default function RegisterAs({navigation}) {
     let [fontsLoaded, fontError] = useFonts({
         Carattere_400Regular,
     });
@@ -18,10 +18,12 @@ export default function RegisterAs() {
             <View style={styles.container}>
             <View style={styles.content}>
                 <Text style={styles.heading}>Register  As</Text>
-                <TouchableOpacity style={styles.Btn}>
-                    <Text style={styles.BtnText}>Event Organizer</Text>
+                <TouchableOpacity style={styles.Btn} onPress={() => navigation.navigate('EventOrganizerHome')}>
+                    <Text style={styles.BtnText}>Event Planner</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.Btn}>
+                <TouchableOpacity style={styles.Btn} onPress={() =>
+                        navigation.navigate('EventHostHome')
+                    }>
                     <Text style={styles.BtnText}>Event Host</Text>
                 </TouchableOpacity>
                 </View>

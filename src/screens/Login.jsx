@@ -1,17 +1,48 @@
-import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/core'
+import { useEffect, useState } from 'react'
+import { auth, signIn } from '../../Firebase'
 
-export default function Login() {
+
+export default function Login({ navigation }) {
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged(user => {
+        if (user) {
+          navigation.replace("RegisterAs")
+        }
+      })
+  
+      return unsubscribe
+    }, [])
+
+
+      const handleLogin = async () => {
+        try {
+            await signIn(email, password); // Use the email and password states
+            // Handle navigation or state changes after successful sign-in
+          } catch (error) {
+            // Handle any errors that might occur during sign-in
+            console.error('Sign-in error:', error);
+          }
+        };
+
     return (
         <View style={styles.container}>
             <Image source={require('../../assets/login1.png')} style={styles.logo} />
             <Text style={styles.title}>LOGIN</Text>
             <View style={styles.inputView}>
                 <TextInput
-                    style={styles.inputText}
                     placeholder="Email"
+                    value={email}
+                    onChangeText={text => setEmail(text)}
+                    style={styles.inputText}
                     placeholderTextColor="#808080"
-                    onChangeText={(text) => setEmail(text)}
                 />
             </View>
             <View style={styles.inputView}>
@@ -23,12 +54,17 @@ export default function Login() {
                     onChangeText={(text) => setPassword(text)}
                 />
             </View>
-            <Text style={styles.text}>Forgot password ?</Text>
-            <TouchableOpacity style={styles.loginBtn}>
+            <TouchableOpacity onPress={() => navigation.navigate('Forgotpw')}>
+                <Text style={styles.text}>Forgot password ?</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.loginBtn} onPress={handleLogin}>
                 <Text style={styles.loginText}>Login</Text>
             </TouchableOpacity>
             <Text style={styles.text1}>Don't have an account ?</Text>
-            <Text style={styles.text2}>Sign Up</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+                <Text style={styles.text2}>Sign Up</Text>
+            </TouchableOpacity>
+
         </View >
     );
 };
@@ -50,19 +86,19 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 15,
         marginBottom: 20,
-        paddingLeft: 170, 
+        paddingLeft: 170,
     },
     text1: {
         color: 'black',
         fontSize: 15,
         marginTop: 20,
-        paddingRight: 120, 
+        paddingRight: 120,
     },
     text2: {
         color: 'black',
         fontSize: 17,
         marginTop: -20,
-        paddingLeft: 150, 
+        paddingLeft: 150,
         fontWeight: 'bold',
         textDecorationLine: 'underline',
     },

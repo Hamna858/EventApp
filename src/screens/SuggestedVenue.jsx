@@ -4,7 +4,7 @@ import { useFonts, Carattere_400Regular } from '@expo-google-fonts/carattere';
 import { Card, Button } from 'react-native-paper';
 
 
-export default function SuggestedVenue() {
+export default function SuggestedVenue({navigation}) {
     let [fontsLoaded, fontError] = useFonts({
         Carattere_400Regular,
     });
@@ -28,7 +28,7 @@ export default function SuggestedVenue() {
                         <Card.Cover source={require('../../assets/b19.jpg')} />
                         <Card.Actions>
                             <Button style={styles.cardButton} labelStyle={styles.cardButtonLabel}>Book Now</Button>
-                            <Button style={styles.cardButton} labelStyle={styles.cardButtonLabel}>See Details</Button>
+                            <Button style={styles.cardButton} labelStyle={styles.cardButtonLabel} onPress={() => navigation.navigate('ViewDetails')}>See Details</Button>
                         </Card.Actions>
                         
                     </Card>

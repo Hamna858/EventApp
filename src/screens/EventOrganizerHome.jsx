@@ -1,17 +1,17 @@
 import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-export default function EventOrganizerHome() {
+export default function EventOrganizerHome({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
                 <Image source={require('../../assets/b10.jpg')} style={styles.logo} />
                 <View style={styles.content}>
                     <Text style={styles.title}>“Our app connects you with a highly targeted audience of individuals and event  searching for venues.”</Text>
-                    <TouchableOpacity style={styles.roundButton}>
+                    <TouchableOpacity style={styles.roundButton} onPress={() => navigation.navigate('NewVenueForm')}>
                         <Text style={styles.buttonText}>Add Your Venue</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.roundButton}>
+                    <TouchableOpacity style={styles.roundButton} onPress={() => navigation.navigate('EventOrganizerBooking')}>
                         <Text style={styles.buttonText}>Your bookings</Text>
                     </TouchableOpacity>
                 </View>

@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import DatePicker from 'react-native-datepicker';
 
 
-export default function NewVenueForm() {
+export default function NewVenueForm({navigation}) {
     const [selectedDate, setSelectedDate] = useState('');
 
     const onDateChange = date => {
@@ -67,7 +67,7 @@ export default function NewVenueForm() {
                         onDateChange={onDateChange}
                     />
              
-                <TouchableOpacity style={styles.loginBtn}>
+                <TouchableOpacity style={styles.loginBtn}  onPress={() => navigation.navigate('OrganizerAllVenues')}>
                     <Text style={styles.loginText}>Submit</Text>
                 </TouchableOpacity>
             </View>

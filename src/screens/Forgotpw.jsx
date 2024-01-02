@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-export default function Forgotpw() {
+export default function Forgotpw({navigation}) {
     return (
         <View style={styles.container}>
             <Image source={require('../../assets/forgotpw1.png')} style={styles.logo} />
@@ -14,7 +14,7 @@ export default function Forgotpw() {
                     onChangeText={(text) => setEmail(text)}
                 />
             </View>
-            <TouchableOpacity style={styles.SubmitBtn}>
+            <TouchableOpacity style={styles.SubmitBtn} onPress={() => navigation.navigate('RegisterAs')}>
                 <Text style={styles.SubmitText}>Submit</Text>
             </TouchableOpacity>
             <Text style={styles.text2}>Send code again</Text>

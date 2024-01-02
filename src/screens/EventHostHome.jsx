@@ -1,17 +1,17 @@
 import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-export default function EventHostHome() {
+export default function EventHostHome({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
                 <Image source={require('../../assets/b10.jpg')} style={styles.logo} />
                 <View style={styles.content}>
                     <Text style={styles.title}>"Connecting you to the perfect venues, themes, and event planners, all within your budget."</Text>
-                    <TouchableOpacity style={styles.roundButton}>
-                        <Text style={styles.buttonText}>Book Your Venue</Text>
+                    <TouchableOpacity style={styles.roundButton} onPress={() => navigation.navigate('HostVenueSearch')}>
+                        <Text style={styles.buttonText}>Search Venue</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.roundButton}>
+                    <TouchableOpacity style={styles.roundButton} onPress={() => navigation.navigate('EventHostBooking')}>
                         <Text style={styles.buttonText}>Your bookings</Text>
                     </TouchableOpacity>
                 </View>

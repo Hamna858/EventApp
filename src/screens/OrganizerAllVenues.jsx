@@ -4,7 +4,7 @@ import { useFonts, Carattere_400Regular } from '@expo-google-fonts/carattere';
 import { Card, Button } from 'react-native-paper';
 
 
-export default function OrganizerAllVenues() {
+export default function OrganizerAllVenues({navigation}) {
     let [fontsLoaded, fontError] = useFonts({
         Carattere_400Regular,
     });
@@ -16,7 +16,7 @@ export default function OrganizerAllVenues() {
         <View style={styles.container}>
             <View style={styles.content}>
                 <View style={styles.container1}>
-                    <Text style={styles.heading}>Booking Requests</Text>
+                    <Text style={styles.heading}>All Venues</Text>
                 </View>
                 <View style={styles.container2}>
                     <Card style={styles.cardContainer}>
@@ -27,7 +27,7 @@ export default function OrganizerAllVenues() {
                             subtitleStyle={styles.cardSubtitle}
                         />
                         <Card.Actions>
-                            <Button style={styles.cardButton} labelStyle={styles.cardButtonLabel}>See Details</Button>
+                            <Button style={styles.cardButton} labelStyle={styles.cardButtonLabel} onPress={() => navigation.navigate('OrganizerVenueDetails')}>See Details</Button>
                            
                         </Card.Actions>
                     </Card>
@@ -46,7 +46,7 @@ export default function OrganizerAllVenues() {
                         </Card.Actions>
                     </Card>
                 </View>
-                <TouchableOpacity style={styles.loginBtn}>
+                <TouchableOpacity style={styles.loginBtn}  onPress={() => navigation.navigate('NewVenueForm')}>
                 <Text style={styles.loginText}>Add new venue</Text>
             </TouchableOpacity>
 

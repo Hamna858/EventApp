@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, Button } from 'react-native-paper';
 
 
-export default function ViewDetails() {
+export default function ViewDetails({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
@@ -22,7 +22,7 @@ export default function ViewDetails() {
             </View>
             <View style={styles.btn}>
             <TouchableOpacity style={styles.loginBtn}>
-                <Text style={styles.loginText}>Book Now</Text>
+                <Text style={styles.loginText} onPress={() => navigation.navigate('OrganizerVenueDetails')}>Book Now</Text>
             </TouchableOpacity>
             </View>
         </View >
