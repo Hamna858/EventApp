@@ -5,17 +5,13 @@ import { AppRegistry } from 'react-native';
 import { PaperProvider } from 'react-native-paper';
 import { name as appName } from './app.json';
 import { NavigationContainer } from '@react-navigation/native';
-
-
+import MainNavigation from './src/screens/MainNavigation';
 
 export default function App() {
   return (
-    <NavigationContainer>
-    {/* <PaperProvider> */}
-       <Navigation/>
-       <Tabs/>
-    {/* </PaperProvider> */}
-    </NavigationContainer>
+    <PaperProvider>
+      <Navigation/>
+    </PaperProvider>
     
   );
 }

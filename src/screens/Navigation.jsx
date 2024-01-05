@@ -19,6 +19,8 @@ import OrganizerAllVenues from './OrganizerAllVenues';
 import ViewDetails from './ViewDetails';
 import SuggestedVenue from './SuggestedVenue';
 import OrganizerVenueDetails from './OrganizerVenueDetails';
+import Tabs from './Tabs';
+import EventHostProfile from './EventHostProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +49,8 @@ const MyStack = () => {
           <Stack.Screen name="ViewDetails" component={ViewDetails} />
           <Stack.Screen name="SuggestedVenue" component={SuggestedVenue} />
           <Stack.Screen name="OrganizerVenueDetails" component={OrganizerVenueDetails} />
+          <Stack.Screen name="Tabs" component={Tabs}/>
+          <Stack.Screen name="EventHostProfile" component={EventHostProfile} />
         </Stack.Navigator>
       </NavigationContainer>
     );

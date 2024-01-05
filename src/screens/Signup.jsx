@@ -24,6 +24,7 @@ export default function Signup({ navigation }) {
         try {
           const user = await signUps(email, password);
           // Handle successful registration, navigate or perform actions
+          navigation.navigate('Tabs');
           console.log('New user:', user);
         } catch (error) {
           // Handle error in registration process
@@ -68,9 +69,6 @@ export default function Signup({ navigation }) {
             <TouchableOpacity style={styles.loginBtn} onPress={handleSignUp}>
                 <Text style={styles.loginText}>Sign Up</Text>
             </TouchableOpacity>
-                <TouchableOpacity style={styles.googleButton}>
-                    <Text style={styles.loginText}>Sign Up with Google</Text>
-                </TouchableOpacity>
         </View >
     );
 };

@@ -18,11 +18,7 @@ export default function EventOrganizerProfile() {
         >
             <View style={styles.container}>
                 <Text style={styles.heading}>Organizer Name</Text>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.rectangleButton}>
-                        <Text style={styles.buttonText}>Edit Profile</Text>
-                    </TouchableOpacity>
-                </View>
+                
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.rectangleButton}>
                         <Text style={styles.buttonText}>Bookings History</Text>

@@ -24,8 +24,8 @@ export default function Login({ navigation }) {
 
       const handleLogin = async () => {
         try {
-            await signIn(email, password); // Use the email and password states
-            // Handle navigation or state changes after successful sign-in
+            await signIn(email, password);
+            navigation.navigate('Tabs');
           } catch (error) {
             // Handle any errors that might occur during sign-in
             console.error('Sign-in error:', error);

@@ -18,11 +18,11 @@ export default function RegisterAs({navigation}) {
             <View style={styles.container}>
             <View style={styles.content}>
                 <Text style={styles.heading}>Register  As</Text>
-                <TouchableOpacity style={styles.Btn} onPress={() => navigation.navigate('EventOrganizerHome')}>
+                <TouchableOpacity style={styles.Btn} onPress={() => navigation.navigate('Tabs')}>
                     <Text style={styles.BtnText}>Event Planner</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.Btn} onPress={() =>
-                        navigation.navigate('EventHostHome')
+                        navigation.navigate('Tabs')
                     }>
                     <Text style={styles.BtnText}>Event Host</Text>
                 </TouchableOpacity>

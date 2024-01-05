@@ -12,15 +12,15 @@ const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
     return(
-        <Tab.Navigator>
-            <Tab.Screen name="EventHostHome" component={EventHostHome} options={{
+        <Tab.Navigator screenOptions={{headerShown:false}}>
+            <Tab.Screen name="Home" component={EventHostHome} options={{
                 tabBarIcon : ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 4}}>
                        <Image source={require('../../assets/home.png')} 
                         resizeMode="contain"
                         style={{
-                            width: 45,
-                            height: 50,
+                            width: 40,
+                            height: 40,
                             tintColor: focused? 'black' : 'gray'
                         }} 
             />
@@ -31,14 +31,14 @@ const Tabs = () => {
             />
 
 
-<Tab.Screen name="HostVenueSearch" component={HostVenueSearch} options={{
+<Tab.Screen name="Venue Search" component={HostVenueSearch} options={{
                 tabBarIcon : ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 4}}>
                        <Image source={require('../../assets/find.png')} 
                         resizeMode="contain"
                         style={{
-                            width: 37,
-                            height: 36,
+                            width: 30,
+                            height: 25,
                             tintColor: focused? 'black' : 'gray'
                         }} 
             />
@@ -47,7 +47,7 @@ const Tabs = () => {
             }}  
             />
 
-<Tab.Screen name="EventHostBooking" component={EventHostBooking} options={{
+<Tab.Screen name="Your Booking" component={EventHostBooking} options={{
                 tabBarIcon : ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 4}}>
                        <Image source={require('../../assets/booking.png')} 
@@ -55,7 +55,7 @@ const Tabs = () => {
                         
                         style={{
                             width: 37,
-                            height: 32,
+                            height: 30,
                             tintColor: focused? 'black' : 'gray'
 
                         }} 
@@ -66,14 +66,14 @@ const Tabs = () => {
             }}  
             />
 
-<Tab.Screen name="EventHostProfile" component={EventHostProfile} options={{
+<Tab.Screen name="Settings" component={EventHostProfile} options={{
                 tabBarIcon : ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 4}}>
                        <Image source={require('../../assets/profile.png')} 
                         resizeMode="contain"
                         style={{
-                            width: 37,
-                            height: 36,
+                            width: 45,
+                            height: 45,
                             tintColor: focused? 'black' : 'gray'
                         }} 
             />

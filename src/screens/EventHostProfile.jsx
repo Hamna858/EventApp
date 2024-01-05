@@ -1,9 +1,9 @@
 import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 import React from 'react';
 import { useFonts, Carattere_400Regular } from '@expo-google-fonts/carattere';
+import { auth, signOut } from '../../Firebase'
 
-
-export default function EventHostProfile() {
+export default function EventHostProfile({navigation}) {
     let [fontsLoaded, fontError] = useFonts({
         Carattere_400Regular,
     });
@@ -11,28 +11,35 @@ export default function EventHostProfile() {
     if (!fontsLoaded && !fontError) {
         return null;
     }
+
+
+    const handleLogout = async () => {
+        try {
+          await signOut();
+          navigation.navigate('Welcome');
+        } catch (error) {
+          console.error('Logout error:', error.message);
+          // Handle logout error
+        }
+      };
+
     return (
         <ImageBackground
             source={require('../../assets/b15.jpg')}
             style={styles.background}
         >
-        <View style={styles.container}>
-            <Text style={styles.heading}>Host Name</Text>
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.rectangleButton}>
-                    <Text style={styles.buttonText}>Edit Profile</Text>
-                </TouchableOpacity>
-                </View>
+            <View style={styles.container}>
+                <Text style={styles.heading}>Host Name</Text>
                 <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.rectangleButton}>
-                    <Text style={styles.buttonText}>Bookings History</Text>
+                    <TouchableOpacity style={styles.rectangleButton} onPress={() => navigation.navigate('EventHostBooking')}>
+                        <Text style={styles.buttonText}>Bookings History</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+                    <Text style={styles.buttonText}>Logout</Text>
                 </TouchableOpacity>
             </View>
-
-            <TouchableOpacity style={styles.logoutButton}>
-                <Text style={styles.buttonText}>Logout</Text>
-            </TouchableOpacity>
-        </View >
         </ImageBackground>
     );
 };

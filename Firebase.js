@@ -44,4 +44,16 @@ const signIn = async (email, password) => {
     }
   };
 
-  export { signIn, signUps, auth };
+// Sign-out function
+const signOut = async () => {
+  try {
+    await signOut(auth);
+    console.log('User signed out');
+    // Additional actions after sign-out
+  } catch (error) {
+    console.error('Sign-out error:', error.message);
+    // Handle sign-out errors
+  }
+};
+
+export { signIn, signUps, signOut, auth };
