@@ -17,7 +17,6 @@ export default function EventOrganizerProfile() {
             style={styles.background}
         >
             <View style={styles.container}>
-                <Text style={styles.heading}>Organizer Name</Text>
                 
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.rectangleButton}>

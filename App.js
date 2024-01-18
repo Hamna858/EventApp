@@ -6,6 +6,8 @@ import { PaperProvider } from 'react-native-paper';
 import { name as appName } from './app.json';
 import { NavigationContainer } from '@react-navigation/native';
 import MainNavigation from './src/screens/MainNavigation';
+import { initializeApp } from '@firebase/app';
+import '@react-native-firebase/database';
 
 export default function App() {
   return (

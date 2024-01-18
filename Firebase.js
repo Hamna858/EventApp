@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth ,signInWithEmailAndPassword,createUserWithEmailAndPassword } from 'firebase/auth';
+import { getFirestore } from '@react-native-firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC9mezo-FyH_oV5QjS_7F8htrbGoleOi_Y",
@@ -12,6 +13,8 @@ const firebaseConfig = {
 
 // Initialize Firebase app
 const app = initializeApp(firebaseConfig);
+
+
 
 // Get the Auth instance
 const auth = getAuth(app);

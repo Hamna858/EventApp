@@ -51,20 +51,7 @@ export default function HostVenueSearch({navigation}) {
                     placeholderTextColor="#888"
                     keyboardType="numeric" // Set keyboard type to numeric
                 />
-                <View style={styles.container}>
-                    <DatePicker
-                        style={styles.datePicker}
-                        date={selectedDate}
-                        mode="date"
-                        placeholder="Select Date"
-                        format="YYYY-MM-DD"
-                        minDate="2020-01-01"
-                        maxDate="2025-12-31"
-                        confirmBtnText="Confirm"
-                        cancelBtnText="Cancel"
-                        onDateChange={onDateChange}
-                    />
-                </View>
+                
                 <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('SuggestedVenue')}>
                     <Text style={styles.loginText}>Find Venue</Text>
                 </TouchableOpacity>

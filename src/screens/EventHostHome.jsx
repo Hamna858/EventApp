@@ -11,8 +11,8 @@ export default function EventHostHome({navigation}) {
                     <TouchableOpacity style={styles.roundButton} onPress={() => navigation.navigate('HostVenueSearch')}>
                         <Text style={styles.buttonText}>Search Venue</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.roundButton} onPress={() => navigation.navigate('EventHostBooking')}>
-                        <Text style={styles.buttonText}>Your bookings</Text>
+                    <TouchableOpacity style={styles.roundButton} onPress={() => navigation.navigate('NewVenueForm')}>
+                        <Text style={styles.buttonText}>Add venue</Text>
                     </TouchableOpacity>
                 </View>
             </View>
