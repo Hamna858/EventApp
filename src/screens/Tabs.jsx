@@ -4,6 +4,7 @@ import EventHostProfile from './EventHostProfile';
 import HostVenueSearch from './HostVenueSearch';
 import EventHostHome from './EventHostHome';
 import EventHostBooking from './EventHostBooking';
+import OrganizerAllVenues from './OrganizerAllVenues';
 import React from 'react';
 
 
@@ -47,7 +48,7 @@ const Tabs = () => {
             }}  
             />
 
-<Tab.Screen name="Your Booking" component={EventHostBooking} options={{
+<Tab.Screen name="All venues" component={OrganizerAllVenues} options={{
                 tabBarIcon : ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 4}}>
                        <Image source={require('../../assets/booking.png')} 

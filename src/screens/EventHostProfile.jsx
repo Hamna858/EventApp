@@ -30,8 +30,8 @@ export default function EventHostProfile({navigation}) {
         >
             <View style={styles.container}>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.rectangleButton} onPress={() => navigation.navigate('EventHostBooking')}>
-                        <Text style={styles.buttonText}>Bookings History</Text>
+                    <TouchableOpacity style={styles.rectangleButton} onPress={() => navigation.navigate('EventHostHome')}>
+                        <Text style={styles.buttonText}>Back to home</Text>
                     </TouchableOpacity>
                 </View>
 
